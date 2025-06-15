@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust - Modern Travel Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1920x1080/a0c4ff/ffffff?text=Travel');
+            background-size: cover;
+            background-position: center;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-sky-500">Wanderlust</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#features" class="text-gray-600 hover:text-sky-500 transition duration-300">Features</a>
+                <a href="#destinations" class="text-gray-600 hover:text-sky-500 transition duration-300">Destinations</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-sky-500 transition duration-300">Testimonials</a>
+                <a href="#contact" class="bg-sky-500 text-white px-4 py-2 rounded-full hover:bg-sky-600 transition duration-300">Contact Us</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
+            <a href="#features" class="block py-2 text-gray-600 hover:text-sky-500">Features</a>
+            <a href="#destinations" class="block py-2 text-gray-600 hover:text-sky-500">Destinations</a>
+            <a href="#testimonials" class="block py-2 text-gray-600 hover:text-sky-500">Testimonials</a>
+            <a href="#contact" class="block mt-2 bg-sky-500 text-white px-4 py-2 rounded-full hover:bg-sky-600 text-center">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section h-[60vh] md:h-[80vh] flex items-center justify-center text-white">
+        <div class="text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Discover Your Next Adventure</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">We plan your trips, you make the memories. Let's explore the world together.</p>
+            <a href="#destinations" class="bg-sky-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-sky-600 transition duration-300 text-lg">Explore Tours</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Why Choose Us?</h2>
+            <p class="text-center text-gray-600 mb-12">The best service for your travel needs.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <div class="p-6">
+                    <div class="text-sky-500 mb-4">
+                        <i class="fas fa-map-marked-alt fa-3x"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Expert Planners</h3>
+                    <p class="text-gray-600">Our team consists of experienced travel experts who craft personalized itineraries just for you.</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-sky-500 mb-4">
+                        <i class="fas fa-dollar-sign fa-3x"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Best Prices</h3>
+                    <p class="text-gray-600">We guarantee competitive prices and the best value for your money on all our packages.</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-sky-500 mb-4">
+                        <i class="fas fa-headset fa-3x"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">24/7 Support</h3>
+                    <p class="text-gray-600">Our support team is available around the clock to assist you during your travels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI-Powered Trip Planner -->
+    <section id="ai-planner" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">✨ AI-Powered Trip Planner</h2>
+                <p class="text-gray-600 mb-8">Tell us what you're dreaming of, and we'll suggest the perfect getaway!</p>
+            </div>
+            <div class="max-w-2xl mx-auto">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="text" id="trip-input" placeholder="e.g., 'A quiet beach vacation with great food'" class="flex-grow px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                    <button id="generate-ideas-btn" class="bg-sky-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-sky-600 transition duration-300">
+                        Generate Ideas
+                    </button>
+                </div>
+                <div id="loader" class="loader hidden"></div>
+                <div id="trip-ideas-output" class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations Section -->
+    <section id="destinations" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Popular Destinations</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Destination Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                    <img src="https://placehold.co/600x400/81b29a/ffffff?text=Bali" alt="Bali, Indonesia" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400';">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Bali, Indonesia</h3>
+                        <p class="text-gray-600 mb-4">Experience serene beaches, lush rice paddies, and vibrant culture.</p>
+                        <a href="#" class="text-sky-500 font-semibold hover:underline">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <!-- Destination Card 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                    <img src="https://placehold.co/600x400/e07a5f/ffffff?text=Paris" alt="Paris, France" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400';">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Paris, France</h3>
+                        <p class="text-gray-600 mb-4">The city of love, art, and fashion awaits your discovery.</p>
+                        <a href="#" class="text-sky-500 font-semibold hover:underline">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <!-- Destination Card 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                    <img src="https://placehold.co/600x400/3d405b/ffffff?text=Kyoto" alt="Kyoto, Japan" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400';">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Kyoto, Japan</h3>
+                        <p class="text-gray-600 mb-4">Immerse yourself in the beauty of ancient temples and tranquil gardens.</p>
+                        <a href="#" class="text-sky-500 font-semibold hover:underline">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">What Our Clients Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <p class="text-gray-600 mb-6">"Wanderlust planned our family vacation perfectly. Every detail was taken care of, and we had an unforgettable time. Highly recommended!"</p>
+                    <div class="flex items-center">
+                        <img src="https://placehold.co/100x100/f4a261/ffffff?text=A" alt="Client 1" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">Alice Johnson</p>
+                            <p class="text-sm text-gray-500">Trip to Bali</p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <p class="text-gray-600 mb-6">"The best travel agency I've ever worked with. Their recommendations were spot on and their support was excellent."</p>
+                    <div class="flex items-center">
+                        <img src="https://placehold.co/100x100/2a9d8f/ffffff?text=B" alt="Client 2" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">Bob Williams</p>
+                            <p class="text-sm text-gray-500">Trip to Paris</p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <p class="text-gray-600 mb-6">"A truly seamless experience from start to finish. I can't wait to book my next trip with Wanderlust!"</p>
+                    <div class="flex items-center">
+                        <img src="https://placehold.co/100x100/e76f51/ffffff?text=C" alt="Client 3" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">Catherine Brown</p>
+                            <p class="text-sm text-gray-500">Trip to Kyoto</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="contact" class="bg-sky-500 py-20 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Plan Your Trip?</h2>
+            <p class="text-lg mb-8">Let's create your next great adventure. Get in touch with us today!</p>
+            <a href="#" class="bg-white text-sky-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 text-lg">Start Planning Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Wanderlust Travel Agency. All Rights Reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Existing Script ---
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                // FIX: Only scroll if href is not just '#'
+                if (href && href.length > 1) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    // Check if the target element exists before scrolling
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // --- New Script for AI Planner ---
+        const generateBtn = document.getElementById('generate-ideas-btn');
+        const tripInput = document.getElementById('trip-input');
+        const ideasOutput = document.getElementById('trip-ideas-output');
+        const loader = document.getElementById('loader');
+
+        generateBtn.addEventListener('click', async () => {
+            const userInput = tripInput.value.trim();
+            if (!userInput) {
+                ideasOutput.innerHTML = `<p class="text-center text-red-500">Please enter your travel preferences.</p>`;
+                return;
+            }
+
+            loader.classList.remove('hidden');
+            ideasOutput.innerHTML = '';
+            generateBtn.disabled = true;
+
+            const prompt = `As a travel expert, suggest three unique travel destinations based on this user request: "${userInput}". For each destination, provide a title with the city and country, and a short, exciting description (about 2-3 sentences). Format each suggestion like this: ### Destination: [City, Country] --- [Description]`;
+
+            try {
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                const payload = { contents: chatHistory };
+                const apiKey = ""; // API key will be automatically handled by the environment
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to get a response from the AI. Please try again.');
+                }
+
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    displayTripIdeas(text);
+                } else {
+                    throw new Error('No suggestions were generated. Please try a different query.');
+                }
+
+            } catch (error) {
+                ideasOutput.innerHTML = `<p class="text-center text-red-500">${error.message}</p>`;
+            } finally {
+                loader.classList.add('hidden');
+                generateBtn.disabled = false;
+            }
+        });
+
+        function displayTripIdeas(text) {
+            const suggestions = text.split('### Destination:').filter(s => s.trim() !== '');
+            if (suggestions.length === 0) {
+                 ideasOutput.innerHTML = `<p class="text-center text-gray-600">Could not find specific suggestions. Try rephrasing your request!</p>`;
+                 return;
+            }
+
+            suggestions.forEach(suggestion => {
+                const parts = suggestion.split('---');
+                if (parts.length < 2) return;
+
+                const title = parts[0].trim();
+                const description = parts[1].trim();
+                const city = title.split(',')[0];
+
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300';
+                card.innerHTML = `
+                    <img src="https://placehold.co/600x400/a0c4ff/ffffff?text=${encodeURIComponent(city)}" alt="${title}" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400';">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">${title}</h3>
+                        <p class="text-gray-600 mb-4">${description}</p>
+                        <a href="#" class="text-sky-500 font-semibold hover:underline">Book Now &rarr;</a>
+                    </div>
+                `;
+                ideasOutput.appendChild(card);
+            });
+        }
+    </script>
+
+</body>
+</html>
